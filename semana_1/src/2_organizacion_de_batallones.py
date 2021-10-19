@@ -4,18 +4,19 @@ def cribaErastotenes(n):
     dists = 1
     for i in range(n + 1):
         if primes[i]:
-            if n % i == 0:
+            if not n % i:
                 dists += 1
 
-            for j in range(i*i, n, i):
-                if not n % j and primes[j]:
-                    dists += 1
-                primes[j] = False
+            for j in range(i*i, n + 1, i):
+                if primes[j]:
+                    primes[j] = False
+                    if not n % j:
+                        dists += 1
     print(dists)
 
 
 N = int(input())
 
-for i in range(0, N):
+for i in range(N):
     n = int(input())
     cribaErastotenes(n)

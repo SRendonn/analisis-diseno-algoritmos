@@ -12,7 +12,7 @@ def mcm(a, b):
 
 
 N = int(input())
-for i in range(0, N):
+for i in range(N):
     min_cm = 1
     items = input().split()
     for item in items:
