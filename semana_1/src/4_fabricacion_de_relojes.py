@@ -1,5 +1,5 @@
 # algoritmo de euclides
-def mcd(a, b):
+def mcd(a: int, b: int):
     if b != 0:
         return mcd(b, a % b)
     else:

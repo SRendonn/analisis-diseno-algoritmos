@@ -1,4 +1,4 @@
-def cribaErastotenes(p, q):
+def cribaErastotenes(p: int, q: int):
     primes = [True] * (q + 1)
     primes[0] = primes[1] = False
     dists = 0
