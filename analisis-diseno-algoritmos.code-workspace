@@ -1,0 +1,21 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "files.associations": {
+      "array": "cpp",
+      "algorithm": "cpp",
+      "random": "cpp",
+      "ostream": "cpp",
+      "span": "cpp",
+      "type_traits": "cpp",
+      "tuple": "cpp",
+      "iostream": "cpp",
+      "*.tcc": "cpp",
+      "list": "cpp"
+    }
+  }
+}
