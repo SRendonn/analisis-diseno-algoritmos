@@ -1,12 +1,7 @@
-counter = 0
-
-
 def merge_sort(lista: list[int]):
-    global counter
     if len(lista) > 1:
-        mid = len(lista) // 2
-        left = lista[:mid]
-        right = lista[mid:]
+        left = lista[:len(lista) // 2]
+        right = lista[len(lista) // 2:]
         merge_sort(left)
         merge_sort(right)
         i = 0
@@ -18,7 +13,6 @@ def merge_sort(lista: list[int]):
                 i += 1
             else:
                 lista[k] = right[j]
-                counter += len(left) - i
                 j += 1
             k += 1
 
@@ -31,17 +25,5 @@ def merge_sort(lista: list[int]):
             lista[k] = right[j]
             j += 1
             k += 1
-        return counter
-    else:
-        return counter
-
-
-M, N = [int(x) for x in input().split()]
-lista = []
-for i in range(M):
-    sec = input()
-    lista.append((merge_sort(list(sec)), sec))
-    counter = 0
-lista.sort()
-for i in range(N):
-    print(lista[i][1])
+        return lista
+    return lista

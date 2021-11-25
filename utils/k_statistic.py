@@ -18,28 +18,9 @@ def find_k(lista: list, low, high, k):
     else:
         p_index = partition(lista, low, high)
         p_value = lista[p_index]
-        if k == p_index:
+        if k == p_value:
             return p_value
-        elif k > p_index:
+        elif k > p_value:
             return find_k(lista, p_index + 1, high, k)
         else:
             return find_k(lista, low, p_index - 1, k)
-
-
-def get_best_house(lista):
-    k = (len(lista) // 2)
-    if not len(lista) % 2:
-        k -= 1
-    best_house = find_k(lista, 0, len(lista) - 1, k)
-    dist = 0
-    for house in lista:
-        if house != best_house:
-            dist += abs(best_house - house)
-    return (best_house, dist)
-
-
-N = int(input())
-lista = []
-for i in range(N):
-    lista.append(int(input()))
-print('{} {}'.format(*get_best_house(lista)))
