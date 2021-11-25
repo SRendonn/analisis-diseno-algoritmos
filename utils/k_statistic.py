@@ -1,15 +1,15 @@
 def partition(lista, low, high):
-    i = low - 1
+    i = low
     pivot = lista[high]
 
     for j in range(low, high):
 
         if lista[j] <= pivot:
-            i += 1
             # swap
             lista[i], lista[j] = lista[j], lista[i]
-    lista[i + 1], lista[high] = lista[high], lista[i + 1]
-    return i + 1
+            i += 1
+    lista[i], lista[high] = lista[high], lista[i]
+    return i
 
 
 def find_k(lista: list, low, high, k):

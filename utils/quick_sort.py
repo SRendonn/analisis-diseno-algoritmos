@@ -19,4 +19,3 @@ def quick_sort(lista: list, low, high):
         partition_i = partition(lista, low, high)
         quick_sort(lista, low, partition_i - 1)
         quick_sort(lista, partition_i + 1, high)
-        return lista
