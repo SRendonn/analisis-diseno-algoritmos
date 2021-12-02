@@ -1,24 +1,19 @@
-def partition(lista, low, high):
-    i = low
-    pivot = lista[high]
-
-    for j in range(low, high):
-
-        if lista[j] <= pivot:
-            # swap
-            lista[i], lista[j] = lista[j], lista[i]
-            i += 1
-    lista[i], lista[high] = lista[high], lista[i]
-    return i
-
 
 counter = 0
 
 
+def partition(lista, low, high):
+    i = low
+    for j in range(low + 1, high + 1):
+        if lista[j] < lista[low]:
+            i += 1
+            lista[i], lista[j] = lista[j], lista[i]
+    lista[i], lista[low] = lista[low], lista[i]
+    return i
+
+
 def quick_sort(lista: list, low, high):
     global counter
-    if len(lista) == 1:
-        return lista
     if low < high:
         counter += 1
         partition_i = partition(lista, low, high)
