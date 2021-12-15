@@ -14,13 +14,4 @@ def knapsack(values: list[int], weights: list[int], max_weight: int):
                 cache[i][j] = max(
                     with_item, without_item)
 
-    return cache[-1][max_weight]
-
-def split_earnings(coins: list[int], max_weight: int):
-    ks = knapsack(coins, coins, max_weight // 2)
-    return 10 * (max_weight - 2 * ks)
-
-C = int(input())
-for i in range(C):
-    monedas = [int(x) // 10 for x in input().split()]
-    print(split_earnings(monedas, sum(monedas)))
+    return cache[len(values)][max_weight]
