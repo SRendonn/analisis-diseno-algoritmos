@@ -15,7 +15,14 @@
       "tuple": "cpp",
       "iostream": "cpp",
       "*.tcc": "cpp",
-      "list": "cpp"
+      "list": "cpp",
+      "bitset": "cpp",
+      "string_view": "cpp",
+      "initializer_list": "cpp",
+      "regex": "cpp",
+      "utility": "cpp",
+      "valarray": "cpp",
+      "cmath": "cpp"
     }
   }
 }
