@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <limits>
 
 using namespace std;
 
@@ -13,6 +14,7 @@ uint get_best_tree(vector<uint> items)
     for (uint i = 0; i < N; i++)
     {
         uint suma = 0;
+        C[i][i] = items[i];
         for (uint j = i; j < N; j++)
         {
             suma = suma + items[j];
@@ -20,17 +22,12 @@ uint get_best_tree(vector<uint> items)
         }
     }
 
-    for (uint i = 0; i < N; i++)
-    {
-        C[i][i] = items[i];
-    }
-
     for (uint nodos = 1; nodos < N; nodos++)
     {
         for (uint i = 0; i < N - nodos; i++)
         {
             uint j = i + nodos;
-            uint menor = 10000;
+            uint menor = numeric_limits<int>::max();
             for (uint r = i; r <= j; r++)
             {
                 if (r == 0)
