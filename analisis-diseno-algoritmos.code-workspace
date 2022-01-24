@@ -22,7 +22,9 @@
       "regex": "cpp",
       "utility": "cpp",
       "valarray": "cpp",
-      "cmath": "cpp"
+      "cmath": "cpp",
+      "iosfwd": "cpp",
+      "limits": "cpp"
     }
   }
 }
