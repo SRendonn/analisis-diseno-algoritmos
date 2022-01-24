@@ -31,9 +31,20 @@ uint get_best_tree(vector<uint> items)
         {
             uint j = i + nodos;
             uint menor = 10000;
-            for (uint r = i + 1; r < j; r++)
+            for (uint r = i; r <= j; r++)
             {
-                menor = min(menor, C[i][r - 1] + C[r + 1][j] + sumP[i][j]);
+                if (r == 0)
+                {
+                    menor = min(menor, C[r + 1][j] + sumP[i][j]);
+                }
+                else if (r == C.size() - 1)
+                {
+                    menor = min(menor, C[i][r - 1] + sumP[i][j]);
+                }
+                else
+                {
+                    menor = min(menor, C[i][r - 1] + C[r + 1][j] + sumP[i][j]);
+                }
             }
             C[i][j] = menor;
         }
