@@ -22,7 +22,7 @@ string parentizacion(uint i, uint j, vector<vector<uint>> S)
     }
 }
 
-void get_matrix(vector<uint> p)
+string get_matrix(vector<uint> p)
 {
     uint N = p.size();
     vector<vector<uint>> m(N, vector<uint>(N, 0));
@@ -46,13 +46,14 @@ void get_matrix(vector<uint> p)
             m[i][j] = menor;
         }
     }
-    cout << parentizacion(1, N - 1, S) << endl;
+    return parentizacion(1, N - 1, S);
 }
 
 int main()
 {
     ushort C;
     cin >> C;
+    vector<string> res;
     for (ushort i = 0; i < C; i++)
     {
         vector<uint> p;
@@ -65,7 +66,12 @@ int main()
         {
             p.push_back(N);
         }
-        get_matrix(p);
+        res.push_back(get_matrix(p));
+    }
+
+    for (ushort i = 0; i < C; i++)
+    {
+        cout << res[i] << endl;
     }
     return 0;
 }
