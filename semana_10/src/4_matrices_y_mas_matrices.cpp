@@ -6,6 +6,18 @@ using namespace std;
 
 void parentizacion(uint i, uint j, vector<vector<uint>> S)
 {
+    if (i == j)
+    {
+        cout << "M" << i;
+    }
+    else
+    {
+        cout << "(";
+        parentizacion(i, S[i][j], S);
+        cout << " x ";
+        parentizacion(1 + S[i][j], j, S);
+        cout << ")";
+    }
 }
 
 void get_matrix(vector<uint> p)
@@ -32,7 +44,8 @@ void get_matrix(vector<uint> p)
             m[i][j] = menor;
         }
     }
-    parentizacion(0, N - 1, S);
+    parentizacion(1, N - 1, S);
+    cout << endl;
 }
 
 int main()
