@@ -36,7 +36,15 @@ void get_matrix(vector<uint> p)
             uint menor = numeric_limits<uint>().max();
             for (uint k = i; k < j; k++)
             {
-                uint Q = m[i][k] + m[k + 1][j] + p[i] * p[k] * p[j];
+                uint Q;
+                if (i >= 1)
+                {
+                    Q = m[i][k] + m[k + 1][j] + p[i - 1] * p[k] * p[j];
+                }
+                else
+                {
+                    Q = m[i][k] + m[k + 1][j] + p[N - 1] * p[k] * p[j];
+                }
                 if (Q < menor)
                 {
                     menor = Q;
