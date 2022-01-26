@@ -30,24 +30,20 @@ void get_matrix(vector<uint> p)
 
     for (uint matrices = 1; matrices < N; matrices++)
     {
-        for (uint i = 0; i < N - matrices + 1; i++)
+        for (uint i = 0; i < N - matrices; i++)
         {
             uint j = i + matrices;
             uint menor = numeric_limits<uint>().max();
-            for (uint k = i; k < j - 1; k++)
+            for (uint k = i; k < j; k++)
             {
                 uint Q;
-                if (i >= 1)
+                if (i == 0)
                 {
-                    Q = m[i][k] + m[k + 1][j] + p[i - 1] * p[k] * p[j];
-                }
-                else if (k >= N - 1)
-                {
-                    Q = m[i][k] + p[N - 1] * p[k] * p[j];
+                    Q = m[i][k] + m[k + 1][j] + p[k] * p[j];
                 }
                 else
                 {
-                    Q = m[i][k] + m[k + 1][j] + p[N - 1] * p[k] * p[j];
+                    Q = m[i][k] + m[k + 1][j] + p[i - 1] * p[k] * p[j];
                 }
 
                 if (Q < menor)
@@ -59,6 +55,7 @@ void get_matrix(vector<uint> p)
             m[i][j] = menor;
         }
     }
+
     cout << parentizacion(1, N - 1, S) << endl;
 }
 
