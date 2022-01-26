@@ -26,25 +26,30 @@ void get_matrix(vector<uint> p)
 {
     uint N = p.size();
     vector<vector<uint>> m(N, vector<uint>(N, 0));
-    vector<vector<uint>> S(N, vector<uint>(N));
+    vector<vector<uint>> S(N, vector<uint>(N, 0));
 
     for (uint matrices = 1; matrices < N; matrices++)
     {
-        for (uint i = 0; i < N - matrices; i++)
+        for (uint i = 0; i < N - matrices + 1; i++)
         {
             uint j = i + matrices;
             uint menor = numeric_limits<uint>().max();
-            for (uint k = i; k < j; k++)
+            for (uint k = i; k < j - 1; k++)
             {
                 uint Q;
                 if (i >= 1)
                 {
                     Q = m[i][k] + m[k + 1][j] + p[i - 1] * p[k] * p[j];
                 }
+                else if (k >= N - 1)
+                {
+                    Q = m[i][k] + p[N - 1] * p[k] * p[j];
+                }
                 else
                 {
                     Q = m[i][k] + m[k + 1][j] + p[N - 1] * p[k] * p[j];
                 }
+
                 if (Q < menor)
                 {
                     menor = Q;
