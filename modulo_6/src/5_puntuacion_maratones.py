@@ -2,7 +2,7 @@ from functools import total_ordering
 
 
 @total_ordering
-class team():
+class team:
     def __init__(self, team_id: int):
         self.id = team_id
         self.correct_answers = set()
